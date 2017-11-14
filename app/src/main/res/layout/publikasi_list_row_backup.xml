@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_layout_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/cover_img"
+        android:layout_width="70dp"
+        android:layout_height="80dp" />
+
+    <TextView
+        android:id="@+id/judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/cover_img"
+        android:layout_toRightOf="@+id/cover_img"
+        android:text="Judul"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/isbn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/judul"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/judul"
+        android:text="isbn"
+        android:textColor="@color/timestamp" />
+
+    <TextView
+        android:id="@+id/tanggal_rilis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:text="tanggal_rilis"
+        android:textColor="@color/colorAccent" />
+
+</RelativeLayout>
