@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imageView4"
-                    android:text="Indikator Strategis"
+                    android:text="Luas Tanam"
                     android:textAlignment="center"
                     android:textSize="14sp" />
             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -95,7 +95,7 @@
                 app:layout_constraintRight_toRightOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="@+id/imageView4"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_idea" />
+                app:srcCompat="@drawable/ic_marijuana_plants" />
 
             <TextView
                 android:id="@+id/link_id"

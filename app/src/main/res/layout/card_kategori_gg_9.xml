@@ -42,16 +42,15 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.034"
-                app:srcCompat="@drawable/bg_circle_black" />
+                app:srcCompat="@drawable/bg_circle_blue" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageView4"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="0dp"
-                android:text="Ekspor dan Impor"
+                android:text="Penggunaan Lahan"
                 android:textAlignment="center"
                 android:textSize="14sp"
                 app:layout_constraintHorizontal_bias="0.501"
@@ -75,7 +74,7 @@
                 app:layout_constraintRight_toRightOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="@+id/imageView4"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_oceanic_cargo_ship_global_distribution" />
+                app:srcCompat="@drawable/ic_field" />
 
             <TextView
                 android:id="@+id/link_id"

@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imageView4"
-                    android:text="Sensus Ekonomi"
+                    android:text="Luas Panen"
                     android:textAlignment="center"
                     android:textSize="14sp" />
             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -94,7 +94,8 @@
                 app:layout_constraintRight_toRightOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="@+id/imageView4"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/logo_se" />
+                app:srcCompat="@drawable/ic_harvest"
+                android:tint="@color/white" />
 
             <TextView
                 android:id="@+id/link_id"

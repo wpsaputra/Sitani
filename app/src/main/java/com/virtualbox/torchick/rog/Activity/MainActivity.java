@@ -288,8 +288,8 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             new AlertDialog.Builder(this)
                     .setTitle("About")
-                    .setMessage("Aplikasi SISERA dimaksudkan sebagai alat untuk mempermudah akses data sosial ekonomi Provinsi Sulawesi Tenggara.\n" +
-                            "Kritik dan Saran terkait pengembangan aplikasi lebih lanjut dapat menghubungi atqo@bps.go.id ")
+                    .setMessage("Aplikasi SITANI dimaksudkan sebagai alat untuk mempermudah akses data pertanian Kabupaten Buton, Buton Tengah & Buton Selatan.\n" +
+                            "Kritik dan Saran terkait pengembangan aplikasi lebih lanjut dapat menghubungi bps7401@bps.go.id ")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // continue with delete

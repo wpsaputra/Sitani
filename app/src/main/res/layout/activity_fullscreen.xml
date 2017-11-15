@@ -51,8 +51,8 @@ tools:context="com.virtualbox.torchick.rog.Activity.SplashscreenActivity">
             android:layout_alignRight="@+id/textView3"
             android:gravity="center"
             android:keepScreenOn="true"
-            android:text="SISERA"
-            android:textColor="#33b5e5"
+            android:text="SITANI"
+            android:textColor="#89c100"
             android:textSize="60sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -67,9 +67,9 @@ tools:context="com.virtualbox.torchick.rog.Activity.SplashscreenActivity">
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView3"
             android:layout_centerHorizontal="true"
-            android:text="Sistem Informasi Sosial Ekonomi Sulawesi Tenggara"
-            android:textColor="#33b5e5"
-            android:textSize="11sp"
+            android:text="Sistem Informasi Data Pertanian"
+            android:textColor="#89c100"
+            android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fullscreen_content" />
@@ -86,7 +86,7 @@ tools:context="com.virtualbox.torchick.rog.Activity.SplashscreenActivity">
         <com.wang.avi.AVLoadingIndicatorView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:indicatorColor="#33b5e5"
+            app:indicatorColor="#89c100"
             app:indicatorName="BallPulseIndicator" />
 
     </RelativeLayout>
