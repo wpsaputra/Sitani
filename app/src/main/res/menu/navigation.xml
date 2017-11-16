@@ -8,17 +8,17 @@
 
     <item
         android:id="@+id/navigation_brs"
-        android:icon="@drawable/ic_book_of_black_cover_closed"
+        android:icon="@drawable/ic_location_on_map"
         android:title="@string/title_brs" />
 
     <item
         android:id="@+id/navigation_awe"
-        android:icon="@drawable/ic_spike_chart"
+        android:icon="@drawable/ic_user"
         android:title="@string/title_awe" />
 
-    <item
-        android:id="@+id/navigation_ens"
-        android:icon="@drawable/ic_book_and_magnifier_with_question_sign"
-        android:title="@string/title_ens" />
+    <!--<item-->
+        <!--android:id="@+id/navigation_ens"-->
+        <!--android:icon="@drawable/ic_book_and_magnifier_with_question_sign"-->
+        <!--android:title="@string/title_ens" />-->
 
 </menu>

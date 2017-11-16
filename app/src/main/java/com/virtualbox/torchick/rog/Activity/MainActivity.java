@@ -33,12 +33,15 @@ import com.virtualbox.torchick.rog.Fragment.BrsFragment;
 import com.virtualbox.torchick.rog.Fragment.EnsiklopediaFragment;
 import com.virtualbox.torchick.rog.Fragment.HomeFragment;
 import com.virtualbox.torchick.rog.Fragment.InfografisFragment;
+import com.virtualbox.torchick.rog.Fragment.ProgressFragment;
 import com.virtualbox.torchick.rog.Model.LinkDataForm;
 import com.virtualbox.torchick.rog.R;
 
 import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
+
+import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     BrsFragment brsFragment = BrsFragment.newInstance("","");
     InfografisFragment infografisFragment = InfografisFragment.newInstance("", "");
     EnsiklopediaFragment ensiklopediaFragment = EnsiklopediaFragment.newInstance("", "");
+
+    ProgressFragment progressFragment = ProgressFragment.newInstance("", "");
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -78,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_awe:
                     mViewPager.setCurrentItem(2);
                     return true;
-                case R.id.navigation_ens:
-                    mViewPager.setCurrentItem(3);
-                    return true;
+//                case R.id.navigation_ens:
+//                    mViewPager.setCurrentItem(3);
+//                    return true;
             }
             return false;
         }
@@ -105,9 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 case 2:
                     navigation.getMenu().getItem(2).setChecked(true);
                     return;
-                case 3:
-                    navigation.getMenu().getItem(3).setChecked(true);
-                    return;
+//                case 3:
+//                    navigation.getMenu().getItem(3).setChecked(true);
+//                    return;
             }
 
         }
@@ -135,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOffscreenPageLimit(3);
 
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -245,19 +250,19 @@ public class MainActivity extends AppCompatActivity {
                 // Toast like print
 //                Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
 
-                if(mViewPager.getCurrentItem()==0){
+                if(mViewPager.getCurrentItem()==0||TRUE){
                     Intent i = new Intent(getApplicationContext(), LinkDataFormSearchActivity.class);
                     i.putExtra("link", s);
                     startActivity(i);
                 }
 
-                if(mViewPager.getCurrentItem()==1){
-                    brsFragment.getPublikasiSearch(s);
-                }
-
-                if(mViewPager.getCurrentItem()==3){
-                    ensiklopediaFragment.getIstilahBySearch(s);
-                }
+//                if(mViewPager.getCurrentItem()==1){
+//                    brsFragment.getPublikasiSearch(s);
+//                }
+//
+//                if(mViewPager.getCurrentItem()==3){
+//                    ensiklopediaFragment.getIstilahBySearch(s);
+//                }
 
 
 
@@ -360,7 +365,8 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return homeFragment;
                 case 1:
-                    return brsFragment;
+//                    return brsFragment;
+                    return progressFragment;
                 case 2:
                     return infografisFragment;
                 case 3:
@@ -372,7 +378,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 4 total pages.
-            return 4;
+            return 3;
         }
 
         @Override
