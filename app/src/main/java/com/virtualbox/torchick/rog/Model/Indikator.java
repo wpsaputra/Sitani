@@ -9,10 +9,9 @@ import android.os.Parcelable;
 
 public class Indikator implements Parcelable {
     private int id, offline;
-    private String indikator, satuan, kategori, circle, icon;
+    private String indikator, satuan, kategori, circle, icon, link;
 
     public Indikator() {
-
     }
 
     public int getId() {
@@ -71,6 +70,14 @@ public class Indikator implements Parcelable {
         this.icon = icon;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
 
     @Override
     public int describeContents() {
@@ -86,6 +93,7 @@ public class Indikator implements Parcelable {
         dest.writeString(this.kategori);
         dest.writeString(this.circle);
         dest.writeString(this.icon);
+        dest.writeString(this.link);
     }
 
     protected Indikator(Parcel in) {
@@ -96,9 +104,10 @@ public class Indikator implements Parcelable {
         this.kategori = in.readString();
         this.circle = in.readString();
         this.icon = in.readString();
+        this.link = in.readString();
     }
 
-    public static final Parcelable.Creator<Indikator> CREATOR = new Parcelable.Creator<Indikator>() {
+    public static final Creator<Indikator> CREATOR = new Creator<Indikator>() {
         @Override
         public Indikator createFromParcel(Parcel source) {
             return new Indikator(source);

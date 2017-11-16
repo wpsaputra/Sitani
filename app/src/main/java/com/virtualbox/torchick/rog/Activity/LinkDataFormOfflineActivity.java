@@ -90,13 +90,15 @@ public class LinkDataFormOfflineActivity extends AppCompatActivity {
 //        List<Indikator> lp = mp.getAll();
         List<Indikator> lp;
 
-        if(idLink.equalsIgnoreCase("99")){
-            lp = mp.getSensusEkonomiAll();
-        }else if(idLink.equalsIgnoreCase("90")) {
-            lp = mp.getIndikatorPropAll();
-        }else {
-            lp = mp.getIndikatorKabAll();
-        }
+//        if(idLink.equalsIgnoreCase("99")){
+//            lp = mp.getSensusEkonomiAll();
+//        }else if(idLink.equalsIgnoreCase("90")) {
+//            lp = mp.getIndikatorPropAll();
+//        }else {
+//            lp = mp.getIndikatorKabAll();
+//        }
+        lp = mp.getIndikatorByKategori(idLink);
+
 
         indikatorList.clear();
 

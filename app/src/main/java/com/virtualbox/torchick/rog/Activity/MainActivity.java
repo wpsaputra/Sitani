@@ -199,7 +199,17 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if(link.equalsIgnoreCase("90")|| link.equalsIgnoreCase("91")||link.equalsIgnoreCase("99")){
+//        if(link.equalsIgnoreCase("90")|| link.equalsIgnoreCase("91")||link.equalsIgnoreCase("99")){
+//            Intent i = new Intent(this, LinkDataFormOfflineActivity.class);
+//            i.putExtra("idLink", link);
+//            i.putExtra("circle", getBitmap(circle));
+//            i.putExtra("icon", getBitmap(icon));
+//
+//            startActivity(i);
+//            return;
+//        }
+
+        if(true){
             Intent i = new Intent(this, LinkDataFormOfflineActivity.class);
             i.putExtra("idLink", link);
             i.putExtra("circle", getBitmap(circle));
@@ -209,11 +219,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        Intent i = new Intent(this, LinkDataFormActivity.class);
-        i.putExtra("link", link);
-        i.putExtra("circle", getBitmap(circle));
-        i.putExtra("icon", getBitmap(icon));
-        startActivity(i);
+//        Intent i = new Intent(this, LinkDataFormActivity.class);
+//        i.putExtra("link", link);
+//        i.putExtra("circle", getBitmap(circle));
+//        i.putExtra("icon", getBitmap(icon));
+//        startActivity(i);
 
 
 

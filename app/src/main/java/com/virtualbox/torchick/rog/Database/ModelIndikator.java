@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Lenovo 17 on 4/27/2016.
  */
 public class ModelIndikator extends Model{
-    String[] col = {"_id", "indikator", "satuan", "kategori", "circle", "icon", "offline"};
+    String[] col = {"_id", "indikator", "satuan", "kategori", "circle", "icon", "offline", "link"};
 
     public ModelIndikator(Context ctx) {
         super(ctx);
@@ -35,9 +35,36 @@ public class ModelIndikator extends Model{
             p.setKategori(c.getString(c.getColumnIndex("kategori")));
             p.setCircle(c.getString(c.getColumnIndex("circle")));
             p.setIcon(c.getString(c.getColumnIndex("icon")));
+            p.setLink(c.getString(c.getColumnIndex("link")));
 
 
             data.add(p);
+            c.moveToNext();
+        }
+        super.closeDB();
+
+        return data;
+    }
+
+    public List<Indikator> getIndikatorByKategori(String kategori){
+        List<Indikator> data = new ArrayList<Indikator>();
+        Cursor c = super.getAll(col);
+        c.moveToFirst();
+        while(!c.isAfterLast()){
+            Indikator p = new Indikator();
+            p.setId(c.getInt(c.getColumnIndex("_id")));
+            p.setOffline(c.getInt(c.getColumnIndex("offline")));
+            p.setIndikator(c.getString(c.getColumnIndex("indikator")));
+            p.setSatuan(c.getString(c.getColumnIndex("satuan")));
+            p.setKategori(c.getString(c.getColumnIndex("kategori")));
+            p.setCircle(c.getString(c.getColumnIndex("circle")));
+            p.setIcon(c.getString(c.getColumnIndex("icon")));
+            p.setLink(c.getString(c.getColumnIndex("link")));
+
+
+            if(p.getKategori().equalsIgnoreCase(kategori)){
+                data.add(p);
+            }
             c.moveToNext();
         }
         super.closeDB();
@@ -58,6 +85,7 @@ public class ModelIndikator extends Model{
             p.setKategori(c.getString(c.getColumnIndex("kategori")));
             p.setCircle(c.getString(c.getColumnIndex("circle")));
             p.setIcon(c.getString(c.getColumnIndex("icon")));
+            p.setLink(c.getString(c.getColumnIndex("link")));
 
 
             if(p.getKategori().equalsIgnoreCase("99")){
@@ -83,6 +111,7 @@ public class ModelIndikator extends Model{
             p.setKategori(c.getString(c.getColumnIndex("kategori")));
             p.setCircle(c.getString(c.getColumnIndex("circle")));
             p.setIcon(c.getString(c.getColumnIndex("icon")));
+            p.setLink(c.getString(c.getColumnIndex("link")));
 
 
             if(p.getId()>=1 && p.getId()<=30){
@@ -108,6 +137,7 @@ public class ModelIndikator extends Model{
             p.setKategori(c.getString(c.getColumnIndex("kategori")));
             p.setCircle(c.getString(c.getColumnIndex("circle")));
             p.setIcon(c.getString(c.getColumnIndex("icon")));
+            p.setLink(c.getString(c.getColumnIndex("link")));
 
 
             if(p.getId()>=61){
