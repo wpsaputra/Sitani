@@ -11,6 +11,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.virtualbox.torchick.rog.Model.Indikator;
 import com.virtualbox.torchick.rog.Model.LinkDataForm;
 import com.virtualbox.torchick.rog.R;
 
@@ -18,7 +19,8 @@ public class WebActivity extends AppCompatActivity {
 
     FrameLayout frameLayoutNoInternet, frameLayoutLoading;
     Button buttonNoInternet;
-    LinkDataForm linkDataForm;
+//    LinkDataForm linkDataForm;
+    Indikator indikator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,11 @@ public class WebActivity extends AppCompatActivity {
         frameLayoutLoading = (FrameLayout) findViewById(R.id.frame_layout_loading);
         buttonNoInternet = (Button) findViewById(R.id.no_internet_button);
 
-        linkDataForm =  getIntent().getParcelableExtra("linkDataForm");
+        indikator =  getIntent().getParcelableExtra("indikator");
         final WebView webView = (WebView) findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("http://sultradata.com/project/SISERA_2/data/tampil-data2?id="+linkDataForm.getId_link());
+//        webView.loadUrl("http://sultradata.com/project/SISERA_2/data/tampil-data2?id="+linkDataForm.getId_link());
+        webView.loadUrl(indikator.getLink());
 
         webView.setWebViewClient(new WebViewClient(){
             @Override
@@ -56,7 +59,8 @@ public class WebActivity extends AppCompatActivity {
         buttonNoInternet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webView.loadUrl("http://sultradata.com/project/SISERA_2/data/tampil-data2?id="+linkDataForm.getId_link());
+//                webView.loadUrl("http://sultradata.com/project/SISERA_2/data/tampil-data2?id="+linkDataForm.getId_link());
+                webView.loadUrl(indikator.getLink());
                 frameLayoutNoInternet.setVisibility(View.GONE);
                 frameLayoutLoading.setVisibility(View.VISIBLE);
             }

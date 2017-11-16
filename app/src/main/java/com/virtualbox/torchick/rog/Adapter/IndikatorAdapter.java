@@ -75,7 +75,8 @@ public class IndikatorAdapter extends RecyclerView.Adapter<IndikatorAdapter.MyVi
         holder.relative_layout_row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =  new Intent(mContext, WebOfflineActivity.class);
+//                Intent i =  new Intent(mContext, WebOfflineActivity.class);
+                Intent i =  new Intent(mContext, WebActivity.class);
                 Indikator indikator = indikatorList.get(position);
                 i.putExtra("indikator", indikator);
                 mContext.startActivity(i);
