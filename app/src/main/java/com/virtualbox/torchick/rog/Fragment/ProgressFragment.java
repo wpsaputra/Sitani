@@ -1,10 +1,14 @@
 package com.virtualbox.torchick.rog.Fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +17,10 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.virtualbox.torchick.rog.Model.LinkDataForm;
 import com.virtualbox.torchick.rog.R;
@@ -41,6 +48,8 @@ public class ProgressFragment extends Fragment {
     FrameLayout frameLayoutNoInternet, frameLayoutLoading;
     Button buttonNoInternet;
     LinkDataForm linkDataForm;
+    FloatingActionButton fab;
+    Context context;
 
     public ProgressFragment() {
         // Required empty public constructor
@@ -86,6 +95,8 @@ public class ProgressFragment extends Fragment {
         frameLayoutNoInternet = (FrameLayout) view.findViewById(R.id.frame_layout_no_internet);
         frameLayoutLoading = (FrameLayout) view.findViewById(R.id.frame_layout_loading);
         buttonNoInternet = (Button) view.findViewById(R.id.no_internet_button);
+        fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        context = view.getContext();
 
 //        linkDataForm =  getIntent().getParcelableExtra("linkDataForm");
 //        final WebView webView = (WebView) view.findViewById(R.id.webview);
@@ -95,7 +106,8 @@ public class ProgressFragment extends Fragment {
 //        linkDataForm =  getIntent().getParcelableExtra("linkDataForm");
         final WebView webView = (WebView) view.findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("http://sultra.bps.go.id/sitani/index.php?r=site/index&dokumen=sp_padi&bulan=8&tahun=2017");
+//        webView.loadUrl("http://sultra.bps.go.id/sitani/index.php?r=site/index&dokumen=sp_padi&bulan=8&tahun=2017");
+        webView.loadUrl("http://sultra.bps.go.id/sitani/index.php?r=site/index");
 
         webView.setWebViewClient(new WebViewClient(){
             @Override
@@ -118,9 +130,74 @@ public class ProgressFragment extends Fragment {
         buttonNoInternet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webView.loadUrl("http://sultra.bps.go.id/sitani/index.php?r=site/index&dokumen=sp_padi&bulan=8&tahun=2017");
+                webView.loadUrl(webView.getUrl());
                 frameLayoutNoInternet.setVisibility(View.GONE);
                 frameLayoutLoading.setVisibility(View.VISIBLE);
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(context, "sasas", Toast.LENGTH_SHORT).show();
+                // get prompts.xml view
+                LayoutInflater li = LayoutInflater.from(context);
+                View promptsView = li.inflate(R.layout.setting_progress_dialog, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        context);
+
+                // set prompts.xml to alertdialog builder
+                alertDialogBuilder.setView(promptsView);
+
+//                final EditText userInput = (EditText) promptsView
+//                        .findViewById(R.id.editTextDialogUserInput);
+
+                final Spinner spinner_dokumen = (Spinner) promptsView.findViewById(R.id.spinner_dokumen);
+                final Spinner spinner_tahun = (Spinner) promptsView.findViewById(R.id.spinner_tahun);
+                final Spinner spinner_bulan = (Spinner) promptsView.findViewById(R.id.spinner_bulan);
+
+
+                // set dialog message
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // get user input and set it to result
+                                        // edit text
+                                        Log.d("Dokumen", String.valueOf(spinner_dokumen.getSelectedItemPosition()));
+                                        Log.d("Tahun", String.valueOf(spinner_tahun.getSelectedItem().toString()));
+                                        Log.d("Bulan", String.valueOf(spinner_bulan.getSelectedItem().toString()));
+
+                                        String dokumen, tahun, bulan;
+                                        if(spinner_dokumen.getSelectedItemPosition()==0){
+                                            dokumen = "sp_padi";
+                                        }else{
+                                            dokumen = "sp_palawija";
+                                        }
+                                        tahun = spinner_tahun.getSelectedItem().toString();
+                                        bulan = String.valueOf(spinner_bulan.getSelectedItemPosition()+1);
+
+                                        webView.loadUrl(webView.getUrl()+"&dokumen="+dokumen+"&tahun="+tahun+"&bulan="+bulan);
+                                        frameLayoutNoInternet.setVisibility(View.GONE);
+                                        frameLayoutLoading.setVisibility(View.VISIBLE);
+
+
+                                    }
+                                })
+                        .setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
             }
         });
 

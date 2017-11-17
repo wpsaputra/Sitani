@@ -6,6 +6,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- For the resting Spinner style -->
+        <item name="android:spinnerItemStyle">
+            @style/spinnerItemStyle
+        </item>
+
+        <!-- For each individual Spinner list item once clicked on -->
+        <!--<item name="android:spinnerDropDownItemStyle">-->
+            <!--@style/spinnerDropDownItemStyle-->
+        <!--</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -28,5 +38,18 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
+
+    <!--custom-->
+    <style name="spinnerItemStyle">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/abu_abu</item>
+    </style>
+
+    <!--<style name="spinnerDropDownItemStyle">-->
+        <!--<item name="android:padding">10dp</item>-->
+        <!--<item name="android:textSize">14sp</item>-->
+        <!--<item name="android:textColor">@color/abu_abu</item>-->
+    <!--</style>-->
 
 </resources>

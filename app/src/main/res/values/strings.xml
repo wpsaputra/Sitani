@@ -16,4 +16,36 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_ens">Ensiklopedia</string>
     <string name="title_activity_fab">FabActivity</string>
+
+    <string name="progress_prompt">Pilih jenis progress</string>
+    <string-array name="progress_arrays">
+        <item>SP Padi</item>
+        <item>SP Palawija</item>
+    </string-array>
+
+    <string name="year_prompt">Pilih tahun</string>
+    <string-array name="years_arrays">
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+    </string-array>
+
+    <string name="month_prompt">Pilih bulan</string>
+    <string-array name="months_arrays">
+        <item>Januari</item>
+        <item>Februari</item>
+        <item>Maret</item>
+        <item>April</item>
+        <item>Mei</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>Agustus</item>
+        <item>September</item>
+        <item>Oktober</item>
+        <item>November</item>
+        <item>Desember</item>
+    </string-array>
+
 </resources>

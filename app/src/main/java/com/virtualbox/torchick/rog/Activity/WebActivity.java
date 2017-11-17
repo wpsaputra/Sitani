@@ -68,14 +68,6 @@ public class WebActivity extends AppCompatActivity {
 
         });
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            webView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-                @Override
-                public void onScrollChange(View view, int i, int i1, int i2, int i3) {
-
-                }
-            });
-        }
 
         buttonNoInternet.setOnClickListener(new View.OnClickListener() {
             @Override
