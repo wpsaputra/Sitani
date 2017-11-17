@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
     private View view;
 
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.image_4, R.drawable.image_2, R.drawable.image_3, R.drawable.image_1};
+    int[] sampleImages = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4};
     ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {

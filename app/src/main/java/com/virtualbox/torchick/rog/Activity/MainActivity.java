@@ -304,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setTitle("About")
                     .setMessage("Aplikasi SITANI dimaksudkan sebagai alat untuk mempermudah akses data pertanian Kabupaten Buton, Buton Tengah & Buton Selatan.\n" +
-                            "Kritik dan Saran terkait pengembangan aplikasi lebih lanjut dapat menghubungi bps7401@bps.go.id ")
+                            "Kritik dan Saran terkait pengembangan aplikasi lebih lanjut dapat menghubungi amirbuton@bps.go.id")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // continue with delete
