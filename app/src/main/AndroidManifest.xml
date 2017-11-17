@@ -82,7 +82,11 @@
         </activity>
         <activity android:name=".Activity.LinkDataFormSearchActivity" />
         <activity android:name=".Activity.LinkDataFormOfflineActivity" />
-        <activity android:name=".Activity.WebOfflineActivity"></activity>
+        <activity android:name=".Activity.WebOfflineActivity" />
+        <activity
+            android:name=".Activity.FabActivity"
+            android:label="@string/title_activity_fab"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
