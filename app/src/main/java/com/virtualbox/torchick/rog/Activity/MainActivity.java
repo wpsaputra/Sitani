@@ -34,6 +34,7 @@ import com.virtualbox.torchick.rog.Fragment.EnsiklopediaFragment;
 import com.virtualbox.torchick.rog.Fragment.HomeFragment;
 import com.virtualbox.torchick.rog.Fragment.InfografisFragment;
 import com.virtualbox.torchick.rog.Fragment.ProgressFragment;
+import com.virtualbox.torchick.rog.Fragment.UploadFragment;
 import com.virtualbox.torchick.rog.Model.LinkDataForm;
 import com.virtualbox.torchick.rog.R;
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     EnsiklopediaFragment ensiklopediaFragment = EnsiklopediaFragment.newInstance("", "");
 
     ProgressFragment progressFragment = ProgressFragment.newInstance("", "");
+    UploadFragment uploadFragment = UploadFragment.newInstance("", "");
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -193,9 +195,11 @@ public class MainActivity extends AppCompatActivity {
 
         String link = textView.getText().toString();
         if(link.equalsIgnoreCase("0")){
-            Toast.makeText(this, "Maaf Data Belum Tersedia", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Maaf Data Belum Tersedia", Toast.LENGTH_SHORT).show();
 //            Intent i = new Intent(this, LinkDataFormOfflineActivity.class);
 //            startActivity(i);
+            mViewPager.setCurrentItem(2);
+            navigation.getMenu().getItem(2).setChecked(true);
             return;
         }
 
@@ -378,9 +382,9 @@ public class MainActivity extends AppCompatActivity {
 //                    return brsFragment;
                     return progressFragment;
                 case 2:
-                    return infografisFragment;
-                case 3:
-                    return ensiklopediaFragment;
+                    return uploadFragment;
+//                case 3:
+//                    return ensiklopediaFragment;
             }
             return null;
         }
@@ -400,8 +404,8 @@ public class MainActivity extends AppCompatActivity {
                     return "SECTION 2";
                 case 2:
                     return "SECTION 3";
-                case 3:
-                    return "SECTION 4";
+//                case 3:
+//                    return "SECTION 4";
             }
             return null;
         }

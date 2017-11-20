@@ -8,7 +8,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_home">Home</string>
     <string name="title_brs">Progress</string>
-    <string name="title_awe">Login</string>
+    <string name="title_awe">Upload</string>
     <string name="search_hint">Search...</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
@@ -33,6 +33,7 @@
     </string-array>
 
     <string name="month_prompt">Pilih bulan</string>
+    <string name="upload_text_summary">Klik tombol upload dibawah ini untuk update progress penerimaan SITANI. Mohon copy terlebih dahulu csv dan mdb SIMTP ke storage HP anda</string>
     <string-array name="months_arrays">
         <item>Januari</item>
         <item>Februari</item>
