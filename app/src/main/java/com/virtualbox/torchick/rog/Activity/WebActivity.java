@@ -84,7 +84,7 @@ public class WebActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(indikator.getKategori().equalsIgnoreCase("5")){
+                if(indikator.getKategori().equalsIgnoreCase("5")||indikator.getKategori().equalsIgnoreCase("6")){
                     Toast.makeText(getApplicationContext(), "Maaf data series tahunan belum tersedia", Toast.LENGTH_LONG).show();
                 }else{
                     Calendar calendar = Calendar.getInstance();

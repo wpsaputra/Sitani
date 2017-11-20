@@ -33,7 +33,11 @@
     </string-array>
 
     <string name="month_prompt">Pilih bulan</string>
-    <string name="upload_text_summary">Klik tombol upload dibawah ini untuk update progress penerimaan SITANI. Mohon copy terlebih dahulu csv dan mdb SIMTP ke storage HP anda</string>
+    <string name="upload_text_summary">
+        Menu ini diperuntukan khusus untuk admin SiTaNi.
+        Klik tombol upload dibawah ini untuk update progress penerimaan SITANI.
+        Mohon copy terlebih dahulu csv dan mdb SIMTP ke storage HP anda.
+    </string>
     <string-array name="months_arrays">
         <item>Januari</item>
         <item>Februari</item>
