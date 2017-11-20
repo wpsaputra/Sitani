@@ -38,6 +38,8 @@
         Klik tombol upload dibawah ini untuk update progress penerimaan SITANI.
         Mohon copy terlebih dahulu csv dan mdb SIMTP ke storage HP anda.
     </string>
+    <string name="action_login">Login</string>
+    <string name="action_logout">Logout</string>
     <string-array name="months_arrays">
         <item>Januari</item>
         <item>Februari</item>

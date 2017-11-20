@@ -1,6 +1,7 @@
 package com.virtualbox.torchick.rog.Activity;
 
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,16 +20,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.virtualbox.torchick.rog.Database.ModelLogin;
 import com.virtualbox.torchick.rog.Fragment.BrsFragment;
 import com.virtualbox.torchick.rog.Fragment.EnsiklopediaFragment;
 import com.virtualbox.torchick.rog.Fragment.HomeFragment;
@@ -36,6 +41,7 @@ import com.virtualbox.torchick.rog.Fragment.InfografisFragment;
 import com.virtualbox.torchick.rog.Fragment.ProgressFragment;
 import com.virtualbox.torchick.rog.Fragment.UploadFragment;
 import com.virtualbox.torchick.rog.Model.LinkDataForm;
+import com.virtualbox.torchick.rog.Model.Login;
 import com.virtualbox.torchick.rog.R;
 
 import org.w3c.dom.Text;
@@ -68,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     BottomNavigationView navigation;
+
+    MenuItem action_login, action_logout;
 
     // Custom Listener
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -185,6 +193,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
 
     public void onCardClick(View v){
@@ -194,12 +204,16 @@ public class MainActivity extends AppCompatActivity {
         ImageView icon = (ImageView) v.findViewById(R.id.imageView9);
 
         String link = textView.getText().toString();
-        if(link.equalsIgnoreCase("0")){
+        ModelLogin modelLogin = new ModelLogin(v.getContext());
+
+        if(link.equalsIgnoreCase("6")&& modelLogin.getById(1).getFlag()!=1){
 //            Toast.makeText(this, "Maaf Data Belum Tersedia", Toast.LENGTH_SHORT).show();
 //            Intent i = new Intent(this, LinkDataFormOfflineActivity.class);
 //            startActivity(i);
-            mViewPager.setCurrentItem(2);
-            navigation.getMenu().getItem(2).setChecked(true);
+//            mViewPager.setCurrentItem(2);
+//            navigation.getMenu().getItem(2).setChecked(true);
+            Toast.makeText(this, "Maaf anda harus login terlebih dahulu untuk melihat data ini", Toast.LENGTH_SHORT).show();
+
             return;
         }
 
@@ -248,6 +262,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Add search menu
         final MenuItem searchItem = menu.findItem(R.id.action_search);
+        action_login = menu.findItem(R.id.action_login);
+        action_logout = menu.findItem(R.id.action_logout);
+
+
         SearchManager searchManager = (SearchManager) MainActivity.this.getSystemService(this.SEARCH_SERVICE);
         SearchView searchView = null;
         if (searchItem != null) {
@@ -293,7 +311,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        initializeLogin(this);
+
         return true;
+    }
+
+    private void initializeLogin(Context context) {
+        ModelLogin modelLogin = new ModelLogin(context);
+        Login login = modelLogin.getById(1);
+        if(login.getFlag()==0){
+            action_login.setVisible(true);
+            action_logout.setVisible(false);
+        }else{
+            action_login.setVisible(false);
+            action_logout.setVisible(true);
+        }
+
     }
 
     @Override
@@ -321,7 +354,78 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if(id==R.id.action_login){
+            showLoginDialog(this);
+        }
+
+        if(id==R.id.action_logout){
+            ModelLogin modelLogin = new ModelLogin(this);
+            Login login = modelLogin.getById(1);
+            login.setFlag(0);
+            modelLogin.update(login);
+            Toast.makeText(this, "Logout Succesful", Toast.LENGTH_SHORT).show();
+            initializeLogin(this);
+        }
+
+
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showLoginDialog(final Context context) {
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.login_dialog, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        alertDialogBuilder.setView(promptsView);
+
+        final EditText edit_name = (EditText) promptsView.findViewById(R.id.editName);
+        final EditText edit_password = (EditText) promptsView.findViewById(R.id.editPassword);
+
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // get user input and set it to result
+//                                // edit text
+//                                Log.d("Dokumen", String.valueOf(edit_name.getText().toString()));
+//                                Log.d("Tahun", String.valueOf(edit_password.getText().toString()));
+                                String username = edit_name.getText().toString();
+                                String password = edit_password.getText().toString();
+                                ModelLogin modelLogin = new ModelLogin(context);
+                                Login login;
+
+                                if((username.equals("bps7401")&&password.equals("bps7401")||(username.equals("userbps")&&password.equals("userbps")))){
+                                    login = modelLogin.getById(1);
+                                    login.setFlag(1);
+                                    modelLogin.update(login);
+                                    Toast.makeText(context, "Login Succesful", Toast.LENGTH_SHORT).show();
+
+                                }else{
+                                    Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_SHORT).show();
+                                }
+
+                                initializeLogin(context);
+
+
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 
     /**
