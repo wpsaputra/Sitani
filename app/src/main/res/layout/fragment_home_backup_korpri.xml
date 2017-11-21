@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/soft_background"
-    tools:context="com.virtualbox.torchick.rog.Activity.MainActivity$PlaceholderFragment">
+    tools:context="com.virtualbox.torchick.sitani.Activity.MainActivity$PlaceholderFragment">
 
     <ScrollView
         android:layout_width="match_parent"
