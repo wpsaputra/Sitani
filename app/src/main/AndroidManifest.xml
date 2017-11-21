@@ -38,48 +38,6 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".Activity.PdfReaderActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:mimeType="application/pdf" />
-                <data android:mimeType="application/x-pdf" />
-                <data android:mimeType="image/djvu" />
-                <data android:mimeType="image/vnd.djvu" />
-                <data android:mimeType="image/x-djvu" />
-                <data android:mimeType="application/vnd.ms-xpsdocument" />
-                <data android:mimeType="application/oxps" />
-                <data android:mimeType="application/x-cbz" />
-                <data android:mimeType="application/x-cbr" />
-                <data android:mimeType="application/x-fb2" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:host="*" />
-                <data android:scheme="file" />
-                <data android:scheme="smb" />
-                <data android:scheme="content" />
-                <data android:scheme="http" />
-                <data android:scheme="https" />
-                <data android:mimeType="*/*" />
-                <data android:pathPattern=".*\\.pdf" />
-                <data android:pathPattern=".*\\.djvu" />
-                <data android:pathPattern=".*\\.djv" />
-                <data android:pathPattern=".*\\.xps" />
-                <data android:pathPattern=".*\\.oxps" />
-                <data android:pathPattern=".*\\.cbz" />
-                <data android:pathPattern=".*\\.cbr" />
-                <data android:pathPattern=".*\\.fb2" />
-                <data android:pathPattern=".*\\.fb2\\.zip" />
-            </intent-filter>
-        </activity>
         <activity android:name=".Activity.LinkDataFormSearchActivity" />
         <activity android:name=".Activity.LinkDataFormOfflineActivity" />
         <activity android:name=".Activity.WebOfflineActivity" />
