@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     HomeFragment homeFragment = HomeFragment.newInstance("","");
-    BrsFragment brsFragment = BrsFragment.newInstance("","");
-    InfografisFragment infografisFragment = InfografisFragment.newInstance("", "");
-    EnsiklopediaFragment ensiklopediaFragment = EnsiklopediaFragment.newInstance("", "");
+//    BrsFragment brsFragment = BrsFragment.newInstance("","");
+//    InfografisFragment infografisFragment = InfografisFragment.newInstance("", "");
+//    EnsiklopediaFragment ensiklopediaFragment = EnsiklopediaFragment.newInstance("", "");
 
     ProgressFragment progressFragment = ProgressFragment.newInstance("", "");
     UploadFragment uploadFragment = UploadFragment.newInstance("", "");

@@ -41,7 +41,7 @@
             android:layout_margin="@dimen/fab_margin"
             android:tint="@color/white"
             app:srcCompat="@drawable/ic_calendar"
-            app:layout_behavior="com.virtualbox.torchick.rog.Helper.ScrollAwareFabBehavior"/>
+            app:layout_behavior="com.virtualbox.torchick.sitani.Helper.ScrollAwareFabBehavior"/>
     </android.support.design.widget.CoordinatorLayout>
 
     <FrameLayout

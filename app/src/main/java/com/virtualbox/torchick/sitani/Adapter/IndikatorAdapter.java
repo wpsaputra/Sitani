@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,7 @@ public class IndikatorAdapter extends RecyclerView.Adapter<IndikatorAdapter.MyVi
             @Override
             public void onClick(View v) {
 //                Intent i =  new Intent(mContext, WebOfflineActivity.class);
+                Log.d("GO TO WEB", "CLICKED");
                 Intent i =  new Intent(mContext, WebActivity.class);
                 Indikator indikator = indikatorList.get(position);
                 i.putExtra("indikator", indikator);
