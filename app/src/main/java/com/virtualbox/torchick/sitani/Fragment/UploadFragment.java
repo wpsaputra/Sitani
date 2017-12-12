@@ -81,7 +81,7 @@ public class UploadFragment extends Fragment {
             @Override
             public void onClick(View view) {
 //                Toast.makeText(view.getContext(), "sasas", Toast.LENGTH_SHORT).show();
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sultra.bps.go.id/simon/index.php?r=jadwal/admin"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sultradata.com/project/simon/index.php?r=jadwal/admin"));
                 startActivity(browserIntent);
             }
         });
