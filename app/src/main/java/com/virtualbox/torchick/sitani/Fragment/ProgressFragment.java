@@ -105,7 +105,7 @@ public class ProgressFragment extends Fragment {
         final WebView webView = (WebView) view.findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
 //        webView.loadUrl("http://sultra.bps.go.id/sitani/index.php?r=site/index&dokumen=sp_padi&bulan=8&tahun=2017");
-        webView.loadUrl("http://sultra.bps.go.id/sitani/index.php?r=site/index");
+        webView.loadUrl("http://sultradata.com/project/sitani/index.php?r=site/index");
 
         webView.setWebViewClient(new WebViewClient(){
             @Override
